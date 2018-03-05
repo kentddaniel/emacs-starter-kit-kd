@@ -44,31 +44,31 @@ This is part of the [[file:starter-kit.org][Emacs Starter Kit]].
   (add-hook 'org-mode-hook 'org-mode-reftex-setup)
 
   ;; RefTeX formats for biblatex (not natbib), and for pandoc
-  (setq reftex-cite-format
-        '(
-          (?\C-m . "\\cite[]{%l}")
-          (?t . "\\textcite{%l}")
-          (?a . "\\autocite[]{%l}")
-          (?p . "\\parencite{%l}")
-          (?f . "\\footcite[][]{%l}")
-          (?F . "\\fullcite[]{%l}")
-          (?P . "[@%l]")
-          (?T . "@%l [p. ]")
-          (?x . "[]{%l}")
-          (?X . "{%l}")
-          ))
+  ;; (setq reftex-cite-format
+  ;;       '(
+  ;;         (?\C-m . "\\cite[]{%l}")
+  ;;         (?t . "\\textcite{%l}")
+  ;;         (?a . "\\autocite[]{%l}")
+  ;;         (?p . "\\parencite{%l}")
+  ;;         (?f . "\\footcite[][]{%l}")
+  ;;         (?F . "\\fullcite[]{%l}")
+  ;;         (?P . "[@%l]")
+  ;;         (?T . "@%l [p. ]")
+  ;;         (?x . "[]{%l}")
+  ;;         (?X . "{%l}")
+  ;;         ))
 
-  (setq font-latex-match-reference-keywords
-        '(("cite" "[{")
-          ("cites" "[{}]")
-          ("footcite" "[{")
-          ("footcites" "[{")
-          ("parencite" "[{")
-          ("textcite" "[{")
-          ("fullcite" "[{") 
-          ("citetitle" "[{") 
-          ("citetitles" "[{") 
-          ("headlessfullcite" "[{")))
+  ;; (setq font-latex-match-reference-keywords
+  ;;       '(("cite" "[{")
+  ;;         ("cites" "[{}]")
+  ;;         ("footcite" "[{")
+  ;;         ("footcites" "[{")
+  ;;         ("parencite" "[{")
+  ;;         ("textcite" "[{")
+  ;;         ("fullcite" "[{") 
+  ;;         ("citetitle" "[{") 
+  ;;         ("citetitles" "[{") 
+  ;;         ("headlessfullcite" "[{")))
 
   (setq reftex-cite-prompt-optional-args nil)
   (setq reftex-cite-cleanup-optional-args t)

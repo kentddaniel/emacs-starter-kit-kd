@@ -1,7 +1,7 @@
 #+TITLE: Local User Customizations
 #+OPTIONS: toc:nil num:nil ^:nil
 
-* Starter Kit kjhealy
+* Starter Kit kent
 This file contains local customizations---ones that in some cases
 you will not be able to just drop in and use because, e.g., they
 involve references to particular files on my own machine. It's
@@ -36,7 +36,45 @@ Finally, the [[*Local%20Org-mode%20XeLaTeX%20Export%20Settings][Local Org-mode X
 
 ** Local Miscellaneous Settings
 *** Use GNU ls
-OS X ships with BSD's ls command which doesn't have all the features of GNU ls (used internally by dired). Install `coreutils` with homebrew (`brew install coreutils`) and use `gls` instead.
+OS X ships with BSD's ls command which doesn't have all the features of GNU ls (used internally by dired). 
+Install `coreutils` with homebrew (`brew install coreutils`) and use `gls` instead.
+
+*** set frame size and location; set mouse actions
+#+source: display-mouse
+#+begin_src emacs-lisp
+
+(setq default-frame-alist
+      '((top . 0) (left . 1665)
+	(width . 126) (height . 99)))
+
+;;      '((top . 2) (left . 1054)	(width . 122) (height . 82))) ;;settings for laptop
+;;(setq-default fill-column 108) ;;settings for laptop
+
+(setq-default fill-column 120)
+
+
+(setq ring-bell-function 'ignore)
+(global-set-key [wheel-right] 'ignore)
+(global-set-key [wheel-left] 'ignore)
+(global-set-key [double-wheel-right] 'ignore)
+(global-set-key [double-wheel-left] 'ignore)
+(global-set-key [triple-wheel-right] 'ignore)
+(global-set-key [triple-wheel-left] 'ignore)
+;;(define-key key-translation-map (kbd "<C-mouse-1>") (kbd "<mouse-2>"))
+(setq mac-emulate-three-button-mouse t)
+
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time                                                    
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling                                                       
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse                                                              
+(setq scroll-step 1) ;; keyboard scroll one line at a time                                                                   
+
+;; This prevents the async-shell-command window from coming to the front when I command-shift-click in
+;; Skim.  I'm not sure why i need this
+;; (see https://emacs.stackexchange.com/questions/5553/async-shell-process-buffer-always-clobbers-window-arrangement)
+(add-to-list 'display-buffer-alist (cons "\\*Async Shell Command\\*.*" (cons #'display-buffer-no-window nil)))
+
+
+#+end_src
 
 #+source: gnu-ls
 #+begin_src emacs-lisp 
@@ -165,8 +203,8 @@ Set up AUCTeX to work with the Skim PDF viewer.
      "/Applications/Skim.app/Contents/SharedSupport/displayline %n %o %b")))
      )
     
-  (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
-  (setq TeX-view-program-list
+    (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
+    (setq TeX-view-program-list
        '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b")))
      
     ;; Make emacs aware of multi-file projects
@@ -185,11 +223,11 @@ Tell RefTeX where the bibliography files are.
 #+begin_src emacs-lisp    
     ;; Make RefTex able to find my local bib files
     (setq reftex-bibpath-environment-variables
-    '("/Users/kjhealy/Library/texmf/bibtex/bib"))
+    '("/usr/local/texlive/texmf-local/bibtex/bst/"))
 
     ;; Default bibliography
     (setq reftex-default-bibliography
-    '("/Users/kjhealy/Documents/bibs/socbib.bib"))
+    '("/Users/kent/bibtex/allrefs.bib"))
 #+end_src
 
 *** Local vc commands
@@ -544,20 +582,18 @@ Some last tweaks.
   ;; If there is more than one, they won't work right.
   '(LaTeX-XeTeX-command "xelatex -synctex=1")
   '(TeX-engine (quote xetex))
-  ;; '(TeX-view-program-list (quote (("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline %n %o %b"))))
-  ;; '(TeX-view-program-selection (quote (((output-dvi style-pstricks) "dvips and gv") (output-dvi "xdvi") (output-pdf "Skim") (output-html "xdg-open"))))
+  '(TeX-view-program-list (quote (("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline %n %o %b"))))
+  '(TeX-view-program-selection (quote (((output-dvi style-pstricks) "dvips and gv") (output-dvi "xdvi") (output-pdf "Skim") (output-html "xdg-open"))))
   '(blink-cursor-mode nil)
   '(text-mode-hook (quote (text-mode-hook-identify)))
+  ;; following added by KD 12/23/2017
+  '(column-number-mode t) 
+  '(display-time-mode t)
+  '(inhibit-startup-screen t)
   )
 #+end_src
    
-   
-   
-   
-   
-   
-
 #+source: message-line
 #+begin_src emacs-lisp
-  (message "Starter Kit User File loaded.")
+  (message "Starter Kit kent.org loaded.")
 #+end_src
