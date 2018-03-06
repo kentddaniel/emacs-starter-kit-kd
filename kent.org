@@ -44,37 +44,38 @@ Install `coreutils` with homebrew (`brew install coreutils`) and use `gls` inste
 #+begin_src emacs-lisp
 
   (defun workConfig ()
-     (setq default-frame-alist '((top . 0) (left . 1665) (width . 126) (height . 99)))
-     (setq-default fill-column 120)
-  )
+    (setq default-frame-alist '((top . 0) (left . 1665) (width . 126) (height . 99)))
+    (setq-default fill-column 120)
+    )
 
   (defun laptopConfig ()
-     (setq default-frame-alist '((top . 2) (left . 1054)    (width . 122) (height . 82)))
-     (setq-default fill-column 108)
-  )
+    (setq default-frame-alist '((top . 2) (left . 1054)    (width . 122) (height . 82)))
+    (setq-default fill-column 108)
+    )
 
-  (if (equal (gettenv "HOST") "WKS-009527-FU") (workConfig))
-  (if (equal (gettenv "HOST") "LPT-008105-FU") (laptopConfig))
+  (if (equal (getenv "LOCATION") "work") (workConfig))
+  (if (equal (getenv "LOCATION") "laptop") (laptopConfig))
 
-  (setq ring-bell-function 'ignore)
-  (global-set-key [wheel-right] 'ignore)
-  (global-set-key [wheel-left] 'ignore)
-  (global-set-key [double-wheel-right] 'ignore)
-  (global-set-key [double-wheel-left] 'ignore)
-  (global-set-key [triple-wheel-right] 'ignore)
-  (global-set-key [triple-wheel-left] 'ignore)
-  ;;(define-key key-translation-map (kbd "<C-mouse-1>") (kbd "<mouse-2>"))
-  (setq mac-emulate-three-button-mouse t)
 
-  (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time  
-  (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling  
-  (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse      
-  (setq scroll-step 1) ;; keyboard scroll one line at a time      
+     (setq ring-bell-function 'ignore)
+     (global-set-key [wheel-right] 'ignore)
+     (global-set-key [wheel-left] 'ignore)
+     (global-set-key [double-wheel-right] 'ignore)
+     (global-set-key [double-wheel-left] 'ignore)
+     (global-set-key [triple-wheel-right] 'ignore)
+     (global-set-key [triple-wheel-left] 'ignore)
+     ;;(define-key key-translation-map (kbd "<C-mouse-1>") (kbd "<mouse-2>"))
+     (setq mac-emulate-three-button-mouse t)
 
-  ;; This prevents the async-shell-command window from coming to the front when I command-shift-click in
-  ;; Skim.  I'm not sure why i need this
-  ;; (see https://emacs.stackexchange.com/questions/5553/async-shell-process-buffer-always-clobbers-window-arrangement)
-  (add-to-list 'display-buffer-alist (cons "\\*Async Shell Command\\*.*" (cons #'display-buffer-no-window nil)))
+     (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time  
+     (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling  
+     (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse      
+     (setq scroll-step 1) ;; keyboard scroll one line at a time      
+
+     ;; This prevents the async-shell-command window from coming to the front when I command-shift-click in
+     ;; Skim.  I'm not sure why i need this
+     ;; (see https://emacs.stackexchange.com/questions/5553/async-shell-process-buffer-always-clobbers-window-arrangement)
+     (add-to-list 'display-buffer-alist (cons "\\*Async Shell Command\\*.*" (cons 'display-buffer-no-window nil)))
 
 
 #+end_src
@@ -189,8 +190,8 @@ In dired mode, visit all marked files using. Bound to the "F" key.
 
 #+source: smart-quotes
 #+begin_src emacs-lisp
-  (setq TeX-open-quote "“")
-  (setq TeX-close-quote "”")
+  ;;(setq TeX-open-quote "“")
+  ;;(setq TeX-close-quote "”")
 #+end_src
 
 *** SyncTeX, PDF mode, Skim
@@ -598,5 +599,5 @@ Some last tweaks.
    
 #+source: message-line
 #+begin_src emacs-lisp
-  (message "Starter Kit kent.org loaded.")
+      (message "Starter Kit kent.org loaded.")
 #+end_src
