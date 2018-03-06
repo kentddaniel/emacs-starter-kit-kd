@@ -1,4 +1,16 @@
-## Emacs Starter Kit for the Social Sciences
+## Emacs Starter Kit for the Social Sciences -- Specific to My installation
+
+* My inital clone command was:
+```
+git clone git://github.com/kentddaniel/emacs-starter-kit-kd.git ~/.emacs.d
+```
+* Given the branching here, to pull and push use the following commands:
+```
+git pull origin master
+git push --set-upstream origin master
+```
+
+## Emacs Starter Kit for the Social Sciences -- general
 
 A drop-in starter-kit for Emacs 24 on the Mac, derived from
 [Phil Hagelberg's](https://github.com/technomancy) and
@@ -162,6 +174,7 @@ brew install coreutils
 * Next, to load *ipython* and *typopunct*, you need to get them from marmalade to do this, execute the following code in the console (this tip is from [here](https://stackoverflow.com/questions/41966506/kieran-healy-emacs-25-1-1-starter-kit-install-error-magit-package-unavailable)):
 
 ```M-x package-refresh-contents [RET]
+M-x package-refresh-contents [RET]
 M-: (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 M-x package-refresh-contents [RET]
 M-x package-install [RET] ipython
