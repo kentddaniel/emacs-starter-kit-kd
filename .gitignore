@@ -42,3 +42,7 @@ src/auctex-src/*elc
 /.#starter-kit-latex.org
 /index.org
 /vc-git.awk
+abbrev_defs
+ido.last
+smex-items
+network-security.data
