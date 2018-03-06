@@ -53,8 +53,8 @@ Install `coreutils` with homebrew (`brew install coreutils`) and use `gls` inste
     (setq-default fill-column 108)
     )
 
-  (if (equal (getenv "LOCATION") "work") (workConfig))
-  (if (equal (getenv "LOCATION") "laptop") (laptopConfig))
+  (if (equal (getenv "MACHINE") "work") (workConfig))
+  (if (equal (getenv "MACHINE") "laptop") (laptopConfig))
 
 
      (setq ring-bell-function 'ignore)
