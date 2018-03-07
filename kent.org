@@ -53,29 +53,35 @@ Install `coreutils` with homebrew (`brew install coreutils`) and use `gls` inste
     (setq-default fill-column 108)
     )
 
+  (defun homeConfig ()
+    (setq default-frame-alist '((top . 0) (left . 4220) (width . 126) (height . 99)))
+    (setq-default fill-column 120)
+    )
+
   (if (equal (getenv "MACHINE") "work") (workConfig))
   (if (equal (getenv "MACHINE") "laptop") (laptopConfig))
+  (if (equal (getenv "MACHINE") "home") (homeConfig))
 
 
-     (setq ring-bell-function 'ignore)
-     (global-set-key [wheel-right] 'ignore)
-     (global-set-key [wheel-left] 'ignore)
-     (global-set-key [double-wheel-right] 'ignore)
-     (global-set-key [double-wheel-left] 'ignore)
-     (global-set-key [triple-wheel-right] 'ignore)
-     (global-set-key [triple-wheel-left] 'ignore)
-     ;;(define-key key-translation-map (kbd "<C-mouse-1>") (kbd "<mouse-2>"))
-     (setq mac-emulate-three-button-mouse t)
+  (setq ring-bell-function 'ignore)
+  (global-set-key [wheel-right] 'ignore)
+  (global-set-key [wheel-left] 'ignore)
+  (global-set-key [double-wheel-right] 'ignore)
+  (global-set-key [double-wheel-left] 'ignore)
+  (global-set-key [triple-wheel-right] 'ignore)
+  (global-set-key [triple-wheel-left] 'ignore)
+  ;;(define-key key-translation-map (kbd "<C-mouse-1>") (kbd "<mouse-2>"))
+  (setq mac-emulate-three-button-mouse t)
 
-     (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time  
-     (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling  
-     (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse      
-     (setq scroll-step 1) ;; keyboard scroll one line at a time      
+  (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time  
+  (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling  
+  (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse      
+  (setq scroll-step 1) ;; keyboard scroll one line at a time      
 
-     ;; This prevents the async-shell-command window from coming to the front when I command-shift-click in
-     ;; Skim.  I'm not sure why i need this
-     ;; (see https://emacs.stackexchange.com/questions/5553/async-shell-process-buffer-always-clobbers-window-arrangement)
-     (add-to-list 'display-buffer-alist (cons "\\*Async Shell Command\\*.*" (cons 'display-buffer-no-window nil)))
+  ;; This prevents the async-shell-command window from coming to the front when I command-shift-click in
+  ;; Skim.  I'm not sure why i need this
+  ;; (see https://emacs.stackexchange.com/questions/5553/async-shell-process-buffer-always-clobbers-window-arrangement)
+  (add-to-list 'display-buffer-alist (cons "\\*Async Shell Command\\*.*" (cons 'display-buffer-no-window nil)))
 
 
 #+end_src
