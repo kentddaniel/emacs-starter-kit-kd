@@ -173,11 +173,17 @@ brew install coreutils
 
 * Next, to load *ipython* and *typopunct*, you need to get them from marmalade to do this, execute the following code in the console (this tip is from [here](https://stackoverflow.com/questions/41966506/kieran-healy-emacs-25-1-1-starter-kit-install-error-magit-package-unavailable)):
 
-```M-x package-refresh-contents [RET]
+```
 M-x package-refresh-contents [RET]
 M-: (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 M-x package-refresh-contents [RET]
 M-x package-install [RET] ipython
 ```
 
+* To see a list of all packages open the package buffer with the command:
 
+```
+M-x package-show-package-list [RET]
+```
+
+* and then to upgrade all available packages just type "Ux"
