@@ -31,6 +31,9 @@ This is part of the [[file:starter-kit.org][Emacs Starter Kit]].
   (setq reftex-use-multiple-selection-buffers t)
   (setq reftex-plug-into-AUCTeX t)
 
+	
+  (setq-default TeX-master nil) ; Query for master file.
+
   ;; Make RefTeX work with Org-Mode
   ;; use 'C-c (' instead of 'C-c [' because the latter is already
   ;; defined in orgmode to the add-to-agenda command.
