@@ -41,7 +41,7 @@ The following packages will be downloaded and installed.
                                 'powerline
                                 'python-mode
                                 'ipython
-                                'jedi
+;;                                'jedi
                                 'redo+
                                 'smartparens 
                                 'smex
