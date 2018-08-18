@@ -1,4 +1,4 @@
-es#+TITLE: Local User Customizations
+s#+TITLE: Local User Customizations
 #+OPTIONS: toc:nil num:nil ^:nil
 
 * Starter Kit kent
@@ -243,6 +243,11 @@ Tell RefTeX where the bibliography files are.
     ;; Default bibliography
     (setq reftex-default-bibliography
     '("/Users/kent/bibtex/allrefs.bib"))
+
+    ;; So that RefTeX also recognizes \addbibresource. Note that you
+    ;; can't use $HOME in path for \addbibresource but that "~"
+    ;; works.
+    (setq reftex-bibliography-commands '("bibliography" "nobibliography" "addbibresource"))
 #+end_src
 
 *** Local vc commands
