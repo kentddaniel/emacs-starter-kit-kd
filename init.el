@@ -22,6 +22,9 @@
                                  "org" (expand-file-name
                                         "src" dotfiles-dir))))
 
+;; open all new files in the same frame
+(setq ns-pop-up-frames nil)
+
 ;; Common Lisp compatability
 (require 'cl-lib)
 
@@ -36,7 +39,7 @@
       ;; (setq load-path (cons my-lisp-dir load-path))
       (normal-top-level-add-subdirs-to-load-path)))
 
-;; (server-start);  start emacs in server mode #KD: 2018-08-12--server starts at boot now
+(server-start);  start emacs in server mode #KD: 2018-08-12--server starts at boot now
 
 
 ;; Font-face setup. Check the availability of a some default fonts, in
